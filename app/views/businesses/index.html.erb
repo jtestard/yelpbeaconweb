@@ -4,6 +4,9 @@
 	<table class="table table-bordered">
 		<tr>
 			<td> Organization </td>
+			<td> Business Name </td>
+			<td> Business ID </td>
+			<td> Business Image URL </td>
 			<td> UUID </td>
 			<td> Major </td>
 			<td> Minor </td>
@@ -13,6 +16,9 @@
 		<% @beacons.each do |beacon| %>
 			<tr>
 				<td> YELP </td>
+				<td> <%= beacon.biz_name %> </td>
+				<td> <%= beacon.biz_id%> </td>
+				<td> <%= beacon.biz_image%> </td>
 				<td> <%= beacon.uuid %> </td>
 				<td> <%= beacon.major %> </td>
 				<td> <%= beacon.minor %> </td>

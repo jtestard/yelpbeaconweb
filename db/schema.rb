@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20140725030105) do
     t.integer  "minor"
     t.string   "uuid"
     t.integer  "business_id"
+    t.string   "biz_id"
+    t.string   "biz_image"
+    t.string   "biz_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,7 +40,6 @@ ActiveRecord::Schema.define(version: 20140725030105) do
   create_table "businesses", force: true do |t|
     t.string   "yelp_username"
     t.string   "password_hash"
-    t.string   "biz_id"
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"

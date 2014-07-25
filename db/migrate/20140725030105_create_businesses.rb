@@ -3,7 +3,6 @@ class CreateBusinesses < ActiveRecord::Migration
     create_table :businesses do |t|
       t.string :yelp_username
       t.string :password_hash
-      t.string :biz_id
       t.string :password_salt
 
       t.timestamps

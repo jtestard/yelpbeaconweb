@@ -23,6 +23,18 @@
 		<%= f.label :minor %> <br />
 	    <%= f.text_field :minor %>
 	  </p>
+	  <p>
+		<%= f.label :biz_id, 'Yelp Business ID' %> <br />
+	    <%= f.text_field :biz_id %>
+	  </p>
+	  <p>
+		<%= f.label :biz_image, 'Image URL'%> <br />
+	    <%= f.text_field :biz_image %>
+	  </p>
+	  <p>
+		<%= f.label :biz_name, 'Business Name' %> <br />
+	    <%= f.text_field :biz_name %>
+	  </p>	  
 	  <%= f.hidden_field :business_id, :value => current_user.id %>
 	  <p class="button"><%= f.submit %></p>
 	<% end %>

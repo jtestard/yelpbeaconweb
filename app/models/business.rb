@@ -1,9 +1,9 @@
 class Business < ActiveRecord::Base
   has_many :beacons
-  attr_accessible :yelp_username, :password_hash, :password_salt, :biz_id
+  attr_accessible :yelp_username, :password_hash, :password_salt
   
   before_save :encrypt_password
-  validates_uniqueness_of :yelp_username, :biz_id
+  validates_uniqueness_of :yelp_username
   validates_presence_of :password_hash, :yelp_username, :password_salt
   
   attr_accessor :password

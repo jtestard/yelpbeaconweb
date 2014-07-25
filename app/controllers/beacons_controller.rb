@@ -52,4 +52,19 @@ class BeaconsController < ApplicationController
       end
     end
   end
+  
+  
+  protect_from_forgery with: :null_session
+  def api
+    puts params.inspect
+    @businesses = []
+    params[:beacons].each do |bc|
+      beacon = Beacon.where(uuid: bc[:uuid], major: bc[:major], minor: bc[:minor]).first
+      @businesses.push({businessId: beacon.biz_id, businessName: beacon.biz_name, businessURL: beacon.biz_image})
+    end
+    respond_to do |format|
+      format.json { render json: @businesses }
+      format.xml { render xml: @businesses }
+    end
+  end
 end

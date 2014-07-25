@@ -5,6 +5,9 @@ class CreateBeacons < ActiveRecord::Migration
       t.integer :minor
       t.string :uuid
       t.belongs_to :business
+      t.string :biz_id
+      t.string :biz_image
+      t.string :biz_name
       t.timestamps
     end
   end
