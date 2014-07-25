@@ -1,0 +1,29 @@
+<% if current_user %>
+	<h2>Create New Beacon </h2>
+	<%= form_for @beacon , :html => { :class => "form-inline" } do |f| %>
+	<% if @beacon.errors.any? %>
+	    <div class="error_messages">
+	      <h2>Form is invalid</h2>
+	      <ul>
+	        <% for message in @beacon.errors.full_messages %>
+	          <li><%= message %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	  <p>
+		<%= f.label :UUID %> <br />
+	    <%= f.text_field :uuid %>
+	  </p>
+	  <p>
+		<%= f.label :major %> <br />
+	    <%= f.text_field :major %>
+	  </p>
+	  <p>
+		<%= f.label :minor %> <br />
+	    <%= f.text_field :minor %>
+	  </p>
+	  <%= f.hidden_field :business_id, :value => current_user.id %>
+	  <p class="button"><%= f.submit %></p>
+	<% end %>
+<%end%>

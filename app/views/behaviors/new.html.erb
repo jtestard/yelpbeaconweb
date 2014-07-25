@@ -1,0 +1,28 @@
+<% if current_user %>
+	<h2>Create New Behavior </h2>
+	<%= form_for @behavior , :html => { :class => "form-inline" } do |f| %>
+	<% if @behavior.errors.any? %>
+	    <div class="error_messages">
+	      <h2>Form is invalid</h2>
+	      <ul>
+	        <% for message in @behavior.errors.full_messages %>
+	          <li><%= message %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	  <p>
+		<%= f.label :proximity %> <br />
+	    <%= f.text_field :proximity %>
+	  </p>
+	  <p>
+		<%= f.label :status %> <br />
+	    <%= f.text_field :status %>
+	  </p>
+	  <p>
+		<%= f.label :action %> <br />
+	    <%= f.text_field :action %>
+	  </p>
+	  <p class="button"><%= f.submit %></p>	
+	<% end %>
+<%end%>

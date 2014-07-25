@@ -7,10 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Businesses
-password = 'favourite_password'
+username = 'jtestard'
+password = '123'
 password_salt = BCrypt::Engine.generate_salt()
 password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-business = Business.create(yelp_username: 'jtestard', password_hash: password_hash, password_salt: password_salt)
+business = Business.create(yelp_username: username, password_hash: password_hash, password_salt: password_salt)
 
 #Beacons
 beacon1 = Beacon.create(business_id: business.id, uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D', major: 0, minor: 4)

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140725030105) do
     t.integer  "major"
     t.integer  "minor"
     t.string   "uuid"
-    t.integer  "business_id_id"
+    t.integer  "business_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

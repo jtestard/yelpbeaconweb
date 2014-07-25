@@ -1,0 +1,58 @@
+<h1> Yelp iBeacon Manager </h1>
+<% if current_user %>
+	<h2>Beacons</h2>
+	<table class="table table-bordered">
+		<tr>
+			<td> Organization </td>
+			<td> UUID </td>
+			<td> Major </td>
+			<td> Minor </td>
+			<td> Behaviors </td>
+			<td> Edit </td>
+		</tr>
+		<% @beacons.each do |beacon| %>
+			<tr>
+				<td> YELP </td>
+				<td> <%= beacon.uuid %> </td>
+				<td> <%= beacon.major %> </td>
+				<td> <%= beacon.minor %> </td>
+				<td>
+					<table class="table table-hover table-bordered table-condensed">
+						<tr>
+							<td> Proximity </td>
+							<td> Status </td>
+							<td> Action </td>
+							<td> Edit </td>
+						</tr>
+						<% beacon.behaviors.each do |behavior| %>
+							<tr>
+								<td> <%= behavior.proximity %> </td>
+								<td> <%= behavior.status %> </td>
+								<td> <%= content_tag(:a, behavior.action, :href => behavior.action ) %> </td>
+								<td>
+									<%= form_for behavior, :html=> {:method => :delete} do |f| %>
+										<%= f.submit :value => "Delete", :class => "btn btn-danger" %>
+									<% end %>
+								</td>
+							</tr>
+						<% end %>
+					</table>
+					<%= form_for :behavior, :url => new_behavior_path, :method => :get  do |f|  %>
+						<%= hidden_field_tag 'beacon_id', beacon.id %>
+					    <%= f.submit "Add behavior", class: "btn btn-primary" %>
+					 <%end%>
+				</td>
+				<td>
+					<%= form_for beacon, :html=> {:method => :delete} do |f| %>
+						<%= f.submit :value => "Delete", :class => "btn btn-danger" %>
+					<% end %>
+				</td>
+			</tr>
+		<%end%>
+	</table>
+	<div style="align : center;">
+		<%= form_for :beacon, :url => new_beacon_path, :method => :get  do |f|  %>
+		    <%= f.submit "Add beacon", class: "btn btn-primary" %>
+		 <%end%>
+	</div>
+<%end%>

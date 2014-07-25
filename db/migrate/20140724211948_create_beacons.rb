@@ -4,7 +4,7 @@ class CreateBeacons < ActiveRecord::Migration
       t.integer :major
       t.integer :minor
       t.string :uuid
-      t.belongs_to :business_id
+      t.belongs_to :business
       t.timestamps
     end
   end

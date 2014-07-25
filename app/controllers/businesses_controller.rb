@@ -1,4 +1,10 @@
-class VisitorsController < ApplicationController
+class BusinessesController < ApplicationController
+  def index
+    if current_user
+      @beacons = current_user.beacons
+    end
+  end
+  
   def new
     @business = Business.new
   end

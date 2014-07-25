@@ -1,5 +1,22 @@
 class BeaconsController < ApplicationController
   
+  def new
+    @beacon = Beacon.new
+  end
+  
+  def destroy
+    @beacon = Beacon.find(params[:id]).destroy
+    redirect_to :root, :notice => "Beacon successfully destroyed!"
+  end
+  
+  def create
+    @beacon = Beacon.new(params[:beacon])
+    if @beacon.save
+      redirect_to :root, :notice => "Beacon successfully added!"
+    else
+      render :new
+    end
+  end
   
   #api_beacons GET    /api/beacons(.:format)          api/beacons#index {:format=>"json"}
   def index
@@ -11,23 +28,27 @@ class BeaconsController < ApplicationController
           respond_to do |format|
             format.json { render json: {url: @behavior.action, error: "", message: "" } }
             format.xml { render xml: {url: @behavior.action, error: "", message: "" } }
+            format.html { render json: {url: @behavior.action, error: "", message: "" } }
           end
         else
           respond_to do |format|
             format.json { render json: {url: "", error: "no action for this beacon configuration : [beacon: #{@beacon.inspect}, proximity: #{params[:proximity]}, status: #{params[:status]}]", message: "" } }
             format.xml { render xml: {url: "", error: "no action for this beacon configuration : [beacon: #{@beacon.inspect}, proximity: #{params[:proximity]}, status: #{params[:status]}]", message: "" } }
+            format.html { render json: {url: "", error: "no action for this beacon configuration : [beacon: #{@beacon.inspect}, proximity: #{params[:proximity]}, status: #{params[:status]}]", message: "" } }
           end
         end
       else
         respond_to do |format|
           format.json { render json: {url: "", error: "no action for this beacon configuration : [beacon: #{@beacon.inspect}, proximity: #{params[:proximity]}, status: #{params[:status]}]", message: "" } }
           format.xml { render xml: {url: "", error: "no action for this beacon configuration : [beacon: #{@beacon.inspect}, proximity: #{params[:proximity]}, status: #{params[:status]}]", message: "" } }
+          format.html { render json: {url: "", error: "no action for this beacon configuration : [beacon: #{@beacon.inspect}, proximity: #{params[:proximity]}, status: #{params[:status]}]", message: "" } }
         end      
       end
     else
       respond_to do |format|
         format.json { render json: {url: "", error: "missing parameters in request", message: ""} }
         format.xml { render xml: {url: "", error: "missing parameters in request", message: ""} }
+        format.html { render json: {url: "", error: "missing parameters in request", message: ""} }
       end
     end
   end
