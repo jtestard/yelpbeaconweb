@@ -10,6 +10,6 @@
 beacon1 = Beacon.create(uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D', major: 0, minor: 4)
 beacon2 = Beacon.create(uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D', major: 0, minor: 1)
 
-Behavior.create(beacon_id: beacon1.id, proximity: 'near', status: 'entering', action: 'http://www.yelp.com')
+Behavior.create(beacon_id: beacon1.id, proximity: 'immediate', status: 'inside', action: 'yelp:///biz/add/check_in?biz_id=xO944sMA9iTlib3EjCncRg')
 Behavior.create(beacon_id: beacon2.id, proximity: 'immediate', status: 'entering', action: 'http://www.yelp.com')
 Behavior.create(beacon_id: beacon2.id, proximity: 'near', status: 'entering', action: 'http://www.yelp.com')
