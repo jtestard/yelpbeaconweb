@@ -3,8 +3,8 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site:
+  Super Awesome : jules testard
+  Site: 
   Twitter:
   Location:
 
