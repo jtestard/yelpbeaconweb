@@ -7,7 +7,5 @@ class CreateBehaviors < ActiveRecord::Migration
       t.string  :action
       t.timestamps
     end
-    
-    add_foreign_key :behaviors, :beacons
   end
 end

@@ -1,7 +1,7 @@
 class Beacon < ActiveRecord::Base
-  attr_accessible :major, :minor
+  attr_accessible :major, :minor, :uuid
   has_many :behaviors
   
-  validates :major, :minor, :presence => true
+  validates :major, :minor, :uuid, :presence => true
   validates_uniqueness_of :major, :scope => :minor
 end

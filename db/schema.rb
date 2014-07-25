@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140724214713) do
   create_table "beacons", force: true do |t|
     t.integer  "major"
     t.integer  "minor"
+    t.string   "uuid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

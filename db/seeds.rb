@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Beacons
-beacon1 = Beacon.create(major: 0, minor: 0)
-beacon2 = Beacon.create(major: 0, minor: 1)
+beacon1 = Beacon.create(uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D', major: 0, minor: 4)
+beacon2 = Beacon.create(uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D', major: 0, minor: 1)
 
 Behavior.create(beacon_id: beacon1.id, proximity: 'near', status: 'entering', action: 'http://www.yelp.com')
-Behavior.create(beacon_id: beacon1.id, proximity: 'immediate', status: 'entering', action: 'http://www.yelp.com')
+Behavior.create(beacon_id: beacon2.id, proximity: 'immediate', status: 'entering', action: 'http://www.yelp.com')
 Behavior.create(beacon_id: beacon2.id, proximity: 'near', status: 'entering', action: 'http://www.yelp.com')
